@@ -84,6 +84,48 @@ public class ListDemo
             }
           }   // DHAT|
 
+        /*
+         * Enhanced for loops work with LinkedLists
+         */
+
+         for (String n : staff)
+         {
+             System.out.println(n + " ");
+         }
+
+         System.out.println("Expected: Diana Harry Albert Tom");
+
+
+        /*
+         * ConcurrentModificationException
+         * 
+         * Cannot modify a LinkedList while also using an iterator
+         *  unless you use the iterator to do so.
+         */
+
+         iterator = staff.listIterator();  // |DHAT
+        while(iterator.hasNext())
+        {
+            String n = iterator.next();
+            if(n.equals("Harry"))
+            {
+                //staff.remove("Diana");
+            }
+        }
+
+        /*
+         * ConcurrentModificationException
+         * 
+         * The enhanced for loop automatically creates an iterator!
+         * That is how it works!
+         */
+        for (String n : staff)
+        {
+            if(n.equals("Harry"))
+            {
+                staff.add("Charlie");
+            }
+        }
 
     }
 }
