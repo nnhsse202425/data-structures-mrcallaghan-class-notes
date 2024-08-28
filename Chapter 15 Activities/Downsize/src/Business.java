@@ -24,19 +24,8 @@ public class Business
          }
       }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
     /**
       Removes every nth element from the linked list
       @param employeeNames the linked list to remove from

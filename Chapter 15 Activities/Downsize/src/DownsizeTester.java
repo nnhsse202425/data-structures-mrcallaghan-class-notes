@@ -13,7 +13,7 @@ public class DownsizeTester
         employeeNames.addLast("Romeo");
         employeeNames.addLast("Juliet");
 
-        Business.downsize(employeeNames, 2);
+        Business.downsizeIterator(employeeNames, 2);
 
         System.out.println(employeeNames);
         System.out.println("Expected: [Dick, Romeo]");
