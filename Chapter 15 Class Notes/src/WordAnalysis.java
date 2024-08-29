@@ -13,7 +13,20 @@ public class WordAnalysis
     public static void main(String[] args)
         throws FileNotFoundException
     {
-        
+        // read the dictionary and the novel
+        Set<String> dictionaryWords = readWords("src/words");
+        Set<String> novelWords = readWords("src/throughTheLookingGlass.txt");
+
+        // print all words that are in the novel but not in the dictionary
+
+        // enhanced for loops work with sets!
+        for(String word : novelWords)
+        {
+            if(!dictionaryWords.contains(word))
+            {
+                System.out.println(word);
+            }
+        }
     }
 
     /**
