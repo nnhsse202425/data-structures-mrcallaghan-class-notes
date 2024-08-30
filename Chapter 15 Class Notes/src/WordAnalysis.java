@@ -36,7 +36,7 @@ public class WordAnalysis
         Iterator<String> iter = novelWords.iterator();
         while(iter.hasNext())
         {
-            if(iter.next().length() > 3)
+            if(iter.next().length() <= 3)
             {
                 iter.remove();
             }
