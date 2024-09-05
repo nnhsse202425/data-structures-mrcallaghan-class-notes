@@ -23,8 +23,8 @@ public class Sieve
             primes.add(i);
         }
 
-        for (int i = 2; i <= n; i++)
-        {
+        for (int i = 2; i * i <= n; i++)
+        {1
             for (int j = 2; i * j <= n; j++)
             {
                 primes.remove(i * j);
