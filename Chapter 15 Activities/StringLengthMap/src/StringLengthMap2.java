@@ -18,7 +18,7 @@ public class StringLengthMap2
         {
 
             // Create your map here
-            
+            Map<Integer, String> words = new TreeMap<>();
 
             while (in.hasNext())
             {
@@ -27,20 +27,20 @@ public class StringLengthMap2
 
                 /*
                  * Below is my sample solution of the first part of the activity.
-                 */
+                 
                 
-                /*
-                 * String oldValue = words.get(len);
-                 * String newValue = word;
-                 * String str;
-                 * 
-                 * if (oldValue != null) {
-                 * str = newValue;
-                 * } else {
-                 * str = oldValue + ", " + newValue;
-                 * }
-                 * words.put(len, str);
-                 */
+                
+                 String oldValue = words.get(len);
+                 String newValue = word;
+                 String str;
+                 
+                 if (oldValue != null) {
+                 str = newValue;
+                 } else {
+                 str = oldValue + ", " + newValue;
+                 }
+                 words.put(len, str);
+                */
 
                 /*
                  * The same functionality can be applied by using the merge method
@@ -74,7 +74,7 @@ public class StringLengthMap2
                  * 
                  */
                  
-                 
+                 words.merge(len, word, StringLengthMap2::remappingFunction);
                  
                  
                  /*
@@ -88,7 +88,7 @@ public class StringLengthMap2
                  * single line, curly brackets are not needed and the return keyword is
                  * implied.
                  */
-                 
+                 words.merge(len, word, (oldValue, newValue) -> oldValue.concat(", " + newValue));
                  
                  
                  
@@ -96,6 +96,14 @@ public class StringLengthMap2
                  * If the definition spans multiple statements, curly brackets are
                  *  required and the value must be explicitly returned.
                  */
+                words.merge(len, word, 
+                    (oldValue, newValue) ->
+                    {
+                        if (oldValue.indexOf(newValue) == -1)
+                            return oldValue.concat(", " + newValue);
+                        else
+                            return oldValue;
+                    });
 
             }
 
@@ -116,7 +124,10 @@ public class StringLengthMap2
      *                 the map
      * @return the "merged" value to replace the value currently in the map
      */
-     
+     private static String remappingFunction(String oldValue, String newValue)
+     {
+        return oldValue.concat(", " + newValue);
+     }
      
      
 
