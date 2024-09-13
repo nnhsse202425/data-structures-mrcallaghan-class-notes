@@ -15,5 +15,14 @@ public class PriorityQueueDemo
 
         q.add(new WorkOrder(3, "water plants"));
         q.add(new WorkOrder(2, "make dinner"));
+        q.add(new WorkOrder(1, "ch 15 quiz"));
+        q.add(new WorkOrder(9, "play video game"));
+        q.add(new WorkOrder(2, "walk dog"));
+
+        while(q.size() > 0)
+        {
+
+            System.out.println(q.remove());
+        }
     }
 }
