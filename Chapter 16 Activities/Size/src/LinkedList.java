@@ -19,13 +19,20 @@ public class LinkedList
     }
 
     /**
-        Computes the size of the linked list.
-        @return the number of elements in the list
-    */
-    public int size()
-    {
-        . . .
-    }
+      Computes the size of the linked list.
+      @return the number of elements in the list
+   */
+   public int size()
+   { 
+      int s = 0;
+      Node current = first;
+      while (current != null)
+      { 
+         s++;
+         current = current.next;
+      }
+      return s;
+   }
 
     /**
         Returns the first element in the linked list.
