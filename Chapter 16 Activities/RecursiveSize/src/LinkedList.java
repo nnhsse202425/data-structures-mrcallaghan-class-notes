@@ -21,13 +21,25 @@ public class LinkedList
     }
 
     /**
-        Computes the size of the linked list.
-        @return the number of elements in the list
-    */
-    public int size()
-    {
-        . . .
-    }
+      Computes the size of the linked list.
+      @return the number of elements in the list
+   */
+   public int size()
+   {
+      return size(first);
+   }
+
+   /**
+     Gets the size of the given node.
+     @param start The node to be sized.
+     @return The size of the given node.
+   */
+   private static int size(Node start)
+   {
+      if (start == null)
+         return 0;
+      return 1 + size(start.next);
+   }
 
 
     /**
