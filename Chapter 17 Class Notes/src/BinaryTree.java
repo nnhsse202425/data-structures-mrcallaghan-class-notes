@@ -10,7 +10,7 @@ public class BinaryTree
     */
     public BinaryTree()
     {
-         
+         this.root = null;
     } 
 
     /**
@@ -19,7 +19,10 @@ public class BinaryTree
     */
     public BinaryTree(Object rootData) 
     {
-        
+        this.root = new Node();
+        this.root.data = rootData;
+        this.root.left = null;
+        this.root.right = null;
     }
 
     /**
@@ -30,12 +33,16 @@ public class BinaryTree
     */
     public BinaryTree(Object rootData, BinaryTree left, BinaryTree right)
     {
-        
+        this(rootData);
+        this.root.left = left.root;
+        this.root.right = right.root;
     }
     
     static class Node
     {
-        
+        public Object data;
+        public Node left;
+        public Node right;
     }
 
     /**
