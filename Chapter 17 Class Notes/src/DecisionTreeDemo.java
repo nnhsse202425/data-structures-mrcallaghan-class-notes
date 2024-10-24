@@ -19,6 +19,7 @@ public class DecisionTreeDemo
             new BinaryTree("Does it swim?",
                new BinaryTree("It is a penguin."),
                new BinaryTree("It is an ostrich."))));
+               // test commit
 
       boolean done = false;
       Scanner in = new Scanner(System.in);
