@@ -72,7 +72,95 @@ public class BinarySearchTree
     */
     public void remove(Comparable obj)
     {
-        
+        Node toBeRemoved = this.root;
+        Node parent = null;
+        boolean found = false;
+
+        // find algorithm
+        while (!found && toBeRemoved != null)
+        {
+            int diff = obj.compareTo(toBeRemoved.data);
+            if(diff == 0)
+            {
+                found = true;
+            }
+            else
+            {
+                parent = toBeRemoved;
+                if (diff < 0)
+                {
+                    toBeRemoved = toBeRemoved.left;
+                }
+                else
+                {
+                    toBeRemoved = toBeRemoved.right;
+                }
+            }
+        }
+
+        if (!found)
+        {
+            return;
+        }
+
+        // Case 1 & 2
+        if (toBeRemoved.left == null || toBeRemoved.right == null)
+        {
+            Node newChild;
+
+            if (toBeRemoved.left == null)
+            {
+                newChild = toBeRemoved.right;
+            }
+            else
+            {
+                newChild = toBeRemoved.left;
+            }
+
+            if (parent == null)
+            {
+                this.root = newChild;
+            }
+            else if (parent.left == toBeRemoved)
+            {
+                parent.left = newChild;
+            }
+            else
+            {
+                parent.right = newChild;
+            }
+
+            return;
+        }
+
+        // neither subtree of the node to be removed is empty (Case 3)
+
+        // find the least element of the right subtree
+
+        Node leastParent = toBeRemoved;
+        Node least = toBeRemoved.right;
+        while (least.left != null)
+        {
+            leastParent = least;
+            least = least.left;
+        }
+
+        // least refers to the leat child in the right subtree
+
+        // move the data
+        toBeRemoved.data = least.data;
+
+        // unlink the least child
+        if (leastParent == toBeRemoved)
+        {
+            leastParent.right = least.right;
+        }
+        else
+        {
+            leastParent.left = least.right;
+        }
+
+
     }
     
     /**
